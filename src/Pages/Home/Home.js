@@ -2,8 +2,11 @@ import React from 'react';
 import Navbar from '../Shared/Navbar/Navbar';
 import Appointment from './Appointment';
 import Banner from './Banner';
+import ContactUs from './ContactUs';
+import Footer from './Footer';
 import Info from './Info/Info';
 import Services from './Services/Services';
+import Testimonial from './Testimonial';
 
 
 const Home = () => {
@@ -14,6 +17,9 @@ const Home = () => {
             <Info></Info>
             <Services></Services>
             <Appointment></Appointment>
+            <Testimonial></Testimonial>
+            <ContactUs></ContactUs>
+            <Footer></Footer>
         </div>
     );
 };
