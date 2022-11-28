@@ -1,9 +1,10 @@
 import React from 'react';
+import Footer from '../Shared/Footer';
 import Navbar from '../Shared/Navbar/Navbar';
 import Appointment from './Appointment';
 import Banner from './Banner';
 import ContactUs from './ContactUs';
-import Footer from './Footer';
+
 import Info from './Info/Info';
 import Services from './Services/Services';
 import Testimonial from './Testimonial';
