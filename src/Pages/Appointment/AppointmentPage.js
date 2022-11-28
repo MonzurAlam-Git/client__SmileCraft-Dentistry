@@ -8,7 +8,7 @@ const AppointmentPage = () => {
     return (
         <div >
             <BannerAppointment date={date} setDate={setDate}></BannerAppointment>
-            <h1 className='text-xl text-center text-cyan-400'>Available Appointment on {format(date, "PPP")}</h1>
+
             <AvailableAppointment date={date} ></AvailableAppointment>
         </div>
     );
