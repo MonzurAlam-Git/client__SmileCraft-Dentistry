@@ -16,13 +16,13 @@ const AvailableAppointment = ({ date }) => {
     return (
         <div >
             <h1 className='text-xl text-center text-cyan-600 mt-5 font-bold font-mono'>Available Appointment on -- <span className='font-bold text-red-500'>{format(date, "PPP")}</span> </h1>
-            <div className='px-28 grid grid-cols-1 lg:grid-cols-3'>
+            <div className='px-28 grid grid-cols-1 lg:grid-cols-3 gap-3'>
                 {/* FUNC_MODAL_0 : every service sending a state var named setTreatment to store the respective service value on service conmponent*/}
                 {
                     services.map(service => <Service key={service._id} service={service} setTreatment={setTreatment}></Service>)
                 }
             </div>
-            {treatment && <ModalAppointment date={date} treatment={treatment}></ModalAppointment>}
+            {treatment && <ModalAppointment date={date} treatment={treatment} setTreatment={setTreatment}></ModalAppointment>}
             {/* FUNC_MODAL_2 : if treatment has truthy value -- ModalAppointment will execute with treatment value inside it as SetTreatment which is complete service data */}
         </div>
     );

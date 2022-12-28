@@ -1,15 +1,36 @@
 import React from 'react';
 import { format } from 'date-fns';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import axios from 'axios';
 
 
-const ModalAppointment = ({ treatment, date }) => {
-    const { title, slot } = treatment;
+const ModalAppointment = ({ treatment, date, setTreatment }) => {
+    const [user, loading, error] = useAuthState(auth);
+    const { _id, title, slot } = treatment;
 
     const handleModal = event => {
         event.preventDefault();
         const slot = event.target.slot.value;
-        const date = event.target.date.value;
-        console.log(slot, date);
+        // const date = event.target.date.value;
+        console.log(title, 'is booked in', slot, 'for', date);
+        const formattedDate = format(date, "PPP");
+
+        const bookingData = {
+            id: _id,
+            name: user.displayName,
+            email: user.email,
+            date: formattedDate,
+            serviceName: title,
+            phone: event.target.contact.value,
+            slot
+        }
+
+        axios.post('http://localhost:5000/bookings', bookingData)
+            .then(res => console.log(res))
+            .then(data => setTreatment(null)
+            )
+
     }
     // FUNC_MODAL_3 -- receives the service data in treatment and destructure
     return (
@@ -33,16 +54,13 @@ const ModalAppointment = ({ treatment, date }) => {
                                 slot.map(slot => <option value={slot}>{slot}</option>)
                             }
                         </select>
-                        <input name='name' type="text" placeholder="Your Name" className="input input-bordered input-md  max-w-xs" />
-                        <input name='email' type="email" placeholder="Your Email" className="input input-bordered input-md  max-w-xs" />
-                        <input name='number' type="number" placeholder="Contact number" className="input input-bordered input-md  max-w-xs" />
+                        <input name='name' type="text" disabled value={user?.displayName} className="input input-bordered input-md  max-w-xs" />
+                        <input name='email' type="email" disabled value={user?.email} className="input input-bordered input-md  max-w-xs" />
+                        <input name='contact' type="number" placeholder="Contact number" className="input input-bordered input-md  max-w-xs" />
                         <input type="submit" value="submit" placeholder="Type here" className="btn mx-auto btn-primary w-40 max-w-xs" />
                     </form>
-
                 </div>
             </div>
-
-
         </div>
     );
 };
