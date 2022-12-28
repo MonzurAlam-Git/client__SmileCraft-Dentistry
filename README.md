@@ -2,5 +2,6 @@
 
 ## Features - A complete portal website for a dentist
 
-- Patient can have a look about doctor
-- Make an appointment through the website
+- Patient can make appointment through web
+- Watch detail information about Doctor
+- Make suitable appointment 
