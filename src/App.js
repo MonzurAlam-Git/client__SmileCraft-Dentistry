@@ -11,6 +11,10 @@ import RequireAuth from './Pages/Shared/RequireAuth';
 import ResetPassword from './Pages/Shared/ResetPassword';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import MyAppointment from './Pages/Dashboard/MyAppointment';
+import MyReview from './Pages/Dashboard/MyReview';
+import MyHistory from './Pages/Dashboard/MyHistory';
 
 function App() {
 
@@ -24,11 +28,31 @@ function App() {
             <AppointmentPage></AppointmentPage>
           </RequireAuth>
         } />
+        <Route path="/dashboard" element={
+          <RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>
+        }>
+          <Route index element={<MyAppointment></MyAppointment>} />
+          <Route path="/dashboard/myReview" element={<MyReview></MyReview>} />
+          <Route path="/dashboard/myHistory" element={<MyHistory></MyHistory>} />
+        </Route>
+
+
         <Route path="/login" element={<Login></Login>} />
         <Route path="/register" element={<Register></Register>} />
         <Route path="/resetPassword" element={<ResetPassword></ResetPassword>} />
       </Routes>
-      <ToastContainer />
+      <ToastContainer position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark" />
     </div>
 
 

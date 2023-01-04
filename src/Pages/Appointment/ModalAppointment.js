@@ -3,17 +3,18 @@ import { format } from 'date-fns';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useEffect } from 'react';
 
 
-const ModalAppointment = ({ treatment, date, setTreatment }) => {
+const ModalAppointment = ({ treatment, date, setTreatment, refetch }) => {
     const [user, loading, error] = useAuthState(auth);
-    const { _id, title, slot } = treatment;
+    const { _id, name, slot } = treatment;
 
     const handleModal = event => {
         event.preventDefault();
         const slot = event.target.slot.value;
-        // const date = event.target.date.value;
-        console.log(title, 'is booked in', slot, 'for', date);
+        console.log(name, 'is booked in', slot, 'for', date);
         const formattedDate = format(date, "PPP");
 
         const bookingData = {
@@ -21,14 +22,43 @@ const ModalAppointment = ({ treatment, date, setTreatment }) => {
             name: user.displayName,
             email: user.email,
             date: formattedDate,
-            serviceName: title,
+            serviceName: name,
             phone: event.target.contact.value,
             slot
         }
 
+        // fetch(`http://localhost:5000/bookings`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': "application/json"
+        //     },
+        //     body: JSON.stringify(bookingData)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if (data.success) {
+        //             toast(`Appointment is set on ${formattedDate} at ${slot}`);
+        //         } else {
+        //             toast.error(`Already have an appointment on ${data.booking?.date} at ${data.booking?.slot}}`);
+        //         }
+        //         setTreatment(null)
+        //         console.log(data)
+        //     })
+
+        // By Axios 
         axios.post('http://localhost:5000/bookings', bookingData)
-            .then(res => console.log(res))
-            .then(data => setTreatment(null)
+            .then(data => {
+                console.log(data);
+                if (data.data.success) {
+                    toast(`Appointment is set  on
+                     ${formattedDate} at ${slot}`);
+                }
+                else {
+                    toast.error(`Already have an appointment  on ${data.data.booking?.date} at ${data.data.booking?.slot}}`);
+                }
+                refetch();
+                setTreatment(null)
+            }
             )
 
     }
@@ -41,7 +71,7 @@ const ModalAppointment = ({ treatment, date, setTreatment }) => {
                 <div className="modal-box relative">
                     <label htmlFor="booking_modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="text-lg font-bold">You are going to make appointment for -
-                        <span className='text-red-500'>{title}</span></h3>
+                        <span className='text-red-500'>{name}</span></h3>
 
                     {/* modal form */}
                     <form onSubmit={handleModal} action="" className='grid gap-2 mx-auto '>
@@ -49,7 +79,7 @@ const ModalAppointment = ({ treatment, date, setTreatment }) => {
                             className="input input-bordered input-md max-w-xs" />
 
                         <select name='slot' className="select select-bordered w-full max-w-xs">
-                            <option disabled selected>Select Slot</option>
+                            <option disabled defaultValue="selected">Select Slot</option>
                             {
                                 slot.map(slot => <option value={slot}>{slot}</option>)
                             }
