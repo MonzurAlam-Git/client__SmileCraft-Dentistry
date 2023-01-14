@@ -7,7 +7,7 @@ import Loading from '../Shared/Loading';
 import UserInfo from './UserInfo';
 
 const AllUsers = () => {
-    const { data, isLoading, refetch } = useQuery('users', () => fetch(`http://localhost:5000/users`, {
+    const { data, isLoading, refetch } = useQuery('users', () => fetch(`https://server-doctors-portal.vercel.app/users`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

@@ -27,7 +27,7 @@ const ModalAppointment = ({ treatment, date, setTreatment, refetch }) => {
             slot
         }
 
-        // fetch(`http://localhost:5000/bookings`, {
+        // fetch(`https://server-doctors-portal.vercel.app/bookings`, {
         //     method: 'POST',
         //     headers: {
         //         'content-type': "application/json"
@@ -46,7 +46,7 @@ const ModalAppointment = ({ treatment, date, setTreatment, refetch }) => {
         //     })
 
         // By Axios 
-        axios.post('http://localhost:5000/bookings', bookingData)
+        axios.post('https://server-doctors-portal.vercel.app/bookings', bookingData)
             .then(data => {
                 console.log(data);
                 if (data.data.success) {

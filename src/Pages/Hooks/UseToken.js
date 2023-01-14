@@ -9,7 +9,7 @@ const UseToken = (user) => {
         const email = user?.user?.email;
         const updatedUser = { email: email };
         if (email) {
-            fetch(`http://localhost:5000/user/${email}`, {
+            fetch(`https://server-doctors-portal.vercel.app/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

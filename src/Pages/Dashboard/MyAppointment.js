@@ -12,7 +12,7 @@ const MyAppointment = () => {
     const [signOut, loading_signOut, error_signOut] = useSignOut(auth);
 
     const { data, isLoading } = useQuery(['bookingData', user], () => {
-        return fetch(`http://localhost:5000/bookings?email=${user.email}`, {
+        return fetch(`https://server-doctors-portal.vercel.app/bookings?email=${user.email}`, {
             method: "GET",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem("accessToken")}`
