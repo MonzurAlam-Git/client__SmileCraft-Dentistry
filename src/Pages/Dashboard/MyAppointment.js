@@ -1,23 +1,39 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
+
 const MyAppointment = () => {
-    const [user] = useAuthState(auth)
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate('');
+    const [signOut, loading_signOut, error_signOut] = useSignOut(auth);
+
     const { data, isLoading } = useQuery(['bookingData', user], () => {
-        return fetch(`http://localhost:5000/bookings?email=${user.email}`)
-            .then(res => res.json())
+        return fetch(`http://localhost:5000/bookings?email=${user.email}`, {
+            method: "GET",
+            headers: {
+                "authorization": `Bearer ${localStorage.getItem("accessToken")}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth);
+                    navigate('/login');
+                }
+                return res.json()
+            })
     })
-    console.log(data);
+
 
     if (isLoading) {
         return <Loading></Loading>
     }
     return (
         <div>
-            <h1> My Appointment {data.length} </h1>
+            <h1 className='text-center font-semibold text-red-600'> Total Appointment {data.length} </h1>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     {/* <!-- head --> */}

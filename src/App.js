@@ -5,7 +5,7 @@ import AppointmentPage from './Pages/Appointment/AppointmentPage';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Login/Register';
-import SignIn from './Pages/Login/SignIn';
+import SignIn from './Pages/Login/SignIn_Trial';
 import Navbar from './Pages/Shared/Navbar/Navbar';
 import RequireAuth from './Pages/Shared/RequireAuth';
 import ResetPassword from './Pages/Shared/ResetPassword';
@@ -15,11 +15,14 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import MyAppointment from './Pages/Dashboard/MyAppointment';
 import MyReview from './Pages/Dashboard/MyReview';
 import MyHistory from './Pages/Dashboard/MyHistory';
+import AllUsers from './Pages/Dashboard/AllUsers';
+import RequireAdmin from './Pages/Dashboard/RequireAdmin';
 
 function App() {
 
   return (
     <div>
+      <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>} />
         <Route path="/home" element={<Home></Home>} />
@@ -36,9 +39,10 @@ function App() {
           <Route index element={<MyAppointment></MyAppointment>} />
           <Route path="/dashboard/myReview" element={<MyReview></MyReview>} />
           <Route path="/dashboard/myHistory" element={<MyHistory></MyHistory>} />
+          <Route path="/dashboard/users" element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>} />
         </Route>
 
-
+        {/* login rel  */}
         <Route path="/login" element={<Login></Login>} />
         <Route path="/register" element={<Register></Register>} />
         <Route path="/resetPassword" element={<ResetPassword></ResetPassword>} />

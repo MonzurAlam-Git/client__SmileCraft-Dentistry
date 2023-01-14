@@ -7,6 +7,11 @@ const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
     const [signOut, loading_signOut, error_signOut] = useSignOut(auth);
 
+    const logOut = () => {
+        signOut(auth);
+        localStorage.removeItem('accessToken');
+    }
+
     const navButton = <>
         <li><Link to="/Home">Home</Link></li>
         <li><Link to="/appointment">Appointment</Link></li>
@@ -17,7 +22,7 @@ const Navbar = () => {
             user && <li><Link to="/dashboard">Dashboard</Link></li>
         }
         {
-            user ? <li><button onClick={async () => await signOut()} className="btn btn-active btn-ghost">Sign Out</button>
+            user ? <li><button onClick={() => logOut()} className="btn btn-active btn-ghost">Sign Out</button>
             </li> : <li tabIndex="0">
                 <a className="justify-between">
                     Login

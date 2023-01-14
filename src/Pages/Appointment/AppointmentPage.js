@@ -11,7 +11,6 @@ const AppointmentPage = () => {
 
     return (
         <div>
-            <Navbar></Navbar>
             <BannerAppointment date={date} setDate={setDate}></BannerAppointment>
             <AvailableAppointment date={date} ></AvailableAppointment>
         </div>

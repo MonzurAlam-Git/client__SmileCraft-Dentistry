@@ -6,6 +6,7 @@ import auth from "../../../src/firebase.init"
 import Loading from '../Shared/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import UseToken from '../Hooks/UseToken';
 
 
 const Login = () => {
@@ -32,12 +33,13 @@ const Login = () => {
 
     let signInError;
 
+    const [token] = UseToken(user || user_g);
+
     useEffect(() => {
-        if (user || user_g) {
+        if (token) {
             navigate(from, { replace: true });
-            console.log(user);
         }
-    }, [user, user_g, from, navigate])
+    }, [token, from, navigate]);
 
     if (error || error_g) {
         signInError = <p className='text-red-600 font-bold m-4'>{error?.message || error_g?.message} </p>
