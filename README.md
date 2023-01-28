@@ -1,7 +1,13 @@
 # Project Name - Doctors Portal 
 
-## Features - A complete portal website for a dentist
+## Live Site -- https://doctorsportal-11797.firebaseapp.com
 
-- Patient can make appointment through web
-- Watch detail information about Doctor
-- Make suitable appointment 
+## Features - An Online Dental Service Appointment Website  
+
+- Its a doctor appointment site that means user can create appointment through this website from various dental services offer by this website
+- To use Service he  have to register an account and sign in either by form or Google Login 
+- After successfull appointment , he also see his orders in dashboard
+- For Admin user, he can see all users appointment , he also can select an user to be admin or not 
+- payment gateway system
+- mobile responsive
+
