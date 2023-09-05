@@ -1,3 +1,9 @@
-.bg-banner{
-    background-image: url("/src/assets/images/bg.png");
+.bg-banner {
+  background-image: url("/src/assets/images/bg.png");
+}
+
+.font-belleza {
+  font-family: "Belleza", sans-serif;
+  font-weight: 500;
+  font-size: medium;
 }

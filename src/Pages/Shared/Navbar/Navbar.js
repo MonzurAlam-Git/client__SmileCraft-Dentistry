@@ -58,6 +58,7 @@ const Navbar = () => {
   return (
     <div className="">
       <div className="navbar bg-gradient-to-r from-cyan-500 to-transparent">
+        {/* <div className="navbar bg-gradient-to-r from-emerald-400 to-transparent"> */}
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -83,16 +84,13 @@ const Navbar = () => {
               {navButton}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">
+          <Link to="/" className="btn btn-ghost normal-case text-xl">
             SmileCraft Dentistry{" "}
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">{navButton}</ul>
         </div>
-        {/* <div className="navbar-end hidden lg:block">
-          <a className="btn btn-primary">Login</a>
-        </div> */}
       </div>
     </div>
   );

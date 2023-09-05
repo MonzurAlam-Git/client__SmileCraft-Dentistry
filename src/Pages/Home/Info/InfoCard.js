@@ -5,7 +5,7 @@ const InfoCard = ({ img, cardTitle, bgClass }) => {
     <div>
       <div
         data-aos="flip-left"
-        className={`card mx-4 px-5 py-4 mb-10 text-base-100 lg:card-side shadow-xl ${bgClass}`}
+        className={`card mx-4 px-5  mb-10 text-base-100 md:flex flex-col lg:card-side shadow-xl ${bgClass}`}
       >
         <figure className="pt-5">
           <img src={img} alt="Album" />

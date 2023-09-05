@@ -2,6 +2,7 @@ import React from "react";
 import appointment from "../../../src/assets/images/appointment.png";
 import dr from "../../../src/assets/images/doctor.png";
 import PrimaryButton from "../Shared/Button/PrimaryButton";
+import Link2Appointment from "../../CommonComponent/Link2Appointment";
 
 const Appointment = () => {
   return (
@@ -38,7 +39,8 @@ const Appointment = () => {
                 here, content here', making it look like readable English. Many
                 desktop publishing packages and web page
               </p>
-              <PrimaryButton>Get Started</PrimaryButton>
+              {/* <PrimaryButton>Get Started</PrimaryButton> */}
+              <Link2Appointment></Link2Appointment>
             </div>
           </div>
         </div>

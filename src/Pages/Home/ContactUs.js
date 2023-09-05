@@ -7,7 +7,7 @@ const ContactUs = () => {
       style={{
         background: `url(${bg})`,
       }}
-      className="py-10 my-10 flex flex-col "
+      className="py-10 my-10  "
     >
       {/* text  */}
       <div className="mb-5 ">
@@ -19,24 +19,26 @@ const ContactUs = () => {
       </div>
       {/* form  */}
       <div className="">
-        <input
-          type="text"
-          placeholder="Name"
-          className="input input-bordered mb-5 w-screen"
-        />{" "}
-        <br />
-        <input
-          type="text"
-          placeholder="Email"
-          className="input input-bordered mb-5 w-screen"
-        />{" "}
-        <br />
-        <input
-          type="text"
-          placeholder="Type here"
-          className="input input-bordered input-lg w-screen mb-5"
-        />{" "}
-        <br />
+        <div className="grid grid-col justify-center">
+          <input
+            type="text"
+            placeholder="Name"
+            className="input input-bordered  w-full"
+          />{" "}
+          <br />
+          <input
+            type="text"
+            placeholder="Email"
+            className="input input-bordered  w-full"
+          />{" "}
+          <br />
+          <input
+            type="text"
+            placeholder="Type here"
+            className="input input-bordered input-lg w-full "
+          />{" "}
+          <br />
+        </div>
         <button className="btn btn-primary grid mx-auto ">Submit</button>
       </div>
     </div>

@@ -6,7 +6,7 @@ import marker from "../../../assets/icons/marker.svg";
 
 const Info = () => {
   return (
-    <div className="bg-dark-100 grid grid-cols-1 lg:grid-cols-3 mx-10">
+    <div className="bg-dark-100 grid grid-cols-1 lg:grid-cols-3 mx-10 ">
       <InfoCard
         bgClass="bg-gradient-to-r from-cyan-500 to-cyan-800"
         cardTitle="Opening Hours"

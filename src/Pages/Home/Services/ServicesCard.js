@@ -3,9 +3,9 @@ import React from "react";
 const ServicesCard = ({ img, title, description }) => {
   return (
     <div>
-      <div className="card w-60 bg-base-100 shadow-xl lg:w-96">
-        <figure className="px-10 pt-10">
-          <img src={img} alt="Shoes" className="rounded-xl" />
+      <div className="card w-auto bg-base-100 shadow-xl lg:w-96 h-96">
+        <figure className="px-10">
+          <img src={img} alt="Shoes" className="rounded-xl mt-3" />
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">{title}</h2>

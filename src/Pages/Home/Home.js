@@ -11,10 +11,10 @@ import Testimonial from "./Testimonial";
 
 const Home = () => {
   return (
-    <div className="w-screen">
+    <div className="">
       <Banner></Banner>
-      <Info></Info>
       <Services></Services>
+      <Info></Info>
       <Appointment></Appointment>
       <Testimonial></Testimonial>
       <ContactUs></ContactUs>
