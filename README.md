@@ -56,7 +56,5 @@ The project utilizes the following packages along with their version numbers:
 - Axios: 0.21.1
 
 
-## Data Types
 
-The project utilizes various data types for modeling patient information, appointment details, and user authentication. For specific details, please refer to the source code or documentation provided within the project files.
 
