@@ -1,4 +1,4 @@
-Certainly! Here's the content combined into a single README.md file:
+
 
 ```markdown
 # SmileCraft Dentistry - Doctors Portal
