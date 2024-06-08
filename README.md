@@ -1,6 +1,6 @@
 
 
-```markdown
+
 # SmileCraft Dentistry - Doctors Portal
 
 Welcome to SmileCraft Dentistry's Doctors Portal! This project is designed to facilitate the management of appointments, patients, and other administrative tasks for dental clinics.
