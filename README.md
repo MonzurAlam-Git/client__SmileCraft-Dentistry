@@ -1,6 +1,3 @@
-
-
-
 # SmileCraft Dentistry - Doctors Portal
 
 Welcome to SmileCraft Dentistry's Doctors Portal! This project is designed to facilitate the management of appointments, patients, and other administrative tasks for dental clinics.
@@ -12,6 +9,11 @@ Welcome to SmileCraft Dentistry's Doctors Portal! This project is designed to fa
 - **Dashboard**: Offers a centralized dashboard for quick access to important information and tasks.
 - **User Authentication**: Implements user authentication to ensure secure access to the portal.
 - **Responsive Design**: Ensures a seamless experience across various devices and screen sizes.
+
+
+## Live Site
+
+Access the live Doctors Portal at [Live Link](https://doctorsportal-11797.web.app/).
 
 ## Running the Project Locally
 
@@ -53,21 +55,6 @@ The project utilizes the following packages along with their version numbers:
 - Material-UI: 4.11.4
 - Axios: 0.21.1
 
-## Detailed Instructions
-
-If you encounter any issues during setup or usage, please refer to the [detailed instructions](./DETAILED_INSTRUCTIONS.md) for troubleshooting steps and additional guidance.
-
-## Postman Documentation
-
-As this project is primarily a client-side application, no Postman documentation is available.
-
-## Live Site
-
-Access the live Doctors Portal at [SmileCraft Dentistry - Doctors Portal](https://doctorsportal-11797.web.app/).
-
-## API Endpoints
-
-Since this project is a client-side application, it does not expose API endpoints directly. Data is fetched from the Firebase backend.
 
 ## Data Types
 
